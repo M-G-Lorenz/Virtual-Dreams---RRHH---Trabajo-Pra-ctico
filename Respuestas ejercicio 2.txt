@@ -1,0 +1,199 @@
+1)
+Un servidor web es un software que forma parte del servidor y tiene como misión principal devolver información (páginas) cuando recibe peticiones por parte de los usuarios.
+En otras palabras, es el software que permite que los usuarios que quieren ver una página web en su navegador puedan hacerlo.
+Para el funcionamiento correcto de un servidor web necesitamos un cliente web que realice una petición http o https a través de un navegador como Chrome, Firefox o Safari y un servidor donde esté almacenada la información.
+El proceso sería el siguiente:
+
+Tras la primera consulta por parte del usuario hacia una web, se establece una conexión entre el servidor DNS y el ordenador que realiza la consulta o petición. Este servidor DNS responde con la dirección IP correcta del servidor web donde está alojado el contenido solicitado.
+El siguiente paso sería solicitar el contenido al servidor web mediante el protocolo HTTP/HTTPS.
+Una vez que el servidor web ha recibido la solicitud del contenido solicitado por el cliente web, deberá procesar la solicitud hasta encontrar el contenido solicitado dentro del dominio correspondiente.
+Envía el contenido solicitado al cliente web que lo solicitó.
+
+
+2)
+Los verbos HTTP se pueden definir como un conjunto de métodos de petición para indicar la acción que se desea realizar para un recurso determinado.
+En el protocolo estandar HTTP son:
+GET: Obtiene el recurso indicado. Es el método que se utiliza cuando se pide el contenido de una página web, por ejemplo.
+HEAD: Similar a GET, pero no se obtiene el cuerpo de respuesta, únicamente los metadatos de la cabecera.
+POST: añade datos al servidor. Siempre es un método de creación.
+PUT: es una solicitud para almacenar la entidad suministrada en el URI indicado. Si la entidad no existe, se crea. Si la entidad existe, se actualiza.
+DELETE: elimina el recurso indicado.
+TRACE: devolverá la misma información que se ha enviado en la solicitud. Es una especie de eco. Sirve para comprobar si la solicitud se ha visto modificada por servidores intermedios.
+OPTIONS: Devuelve los métodos HTTP soportados por el servidor para la URL especificada.
+CONNECT: Convierte la solicitud en un tunel TCP/IP. Normalmente se usa para crear comunicaciones HTTPS a través de proxys HTTP sin encriptación.
+PATCH; Aplica modificaciones parciales al recurso especificado.
+
+
+3)
+El Request me permite acceder a la información que pasa desde el navegador del cliente al servidor.
+El response es el mensaje que envía el servidor al cliente tras haber recibido una petición o HTTP request.
+Los headers HTTP permiten al cliente y al servidor enviar información adicional junto a una petición o respuesta. se componen por su nombre (no sensible a las mayusculas) seguido de dos puntos ':', y a continuación su valor (sin saltos de línea). Los espacios en blanco a la izquierda del valor se ignoran
+
+
+4)
+Query string hace referencia a una interacción con una base de datos. Es la parte de una URL que contiene los datos que deben pasar a aplicaciones web.
+
+Al principio eran estaticos, como por ejemplo:
+www.ejemplo.net/paginaprincipal/paginasecundaria/contenido.html
+Siempre mostraban el mismo contenido
+
+Despues aparecieron los dinamicos, el servidor crea la pagina automaticamente cuando se le solicita, segun los parametros de la URL. por ejemplo:
+www.ejemplo.net/pagina.php?nombredevalor1=valor1&nombredevalor2=valor2
+
+
+5)
+ResponseCode me indica cuando un HTTP request se completo con exito. Se agrupan en 5 clases:
+respuestas informativas(100–199)
+respuestas exitossas(200–299)
+Redirecciones (300–399)
+errores del cliente (400–499)
+errores del servidor (500–599)
+
+
+6)
+GET envía la información codificada del usuario en el header del HTTP request, directamente en la URL. La página web y la información codificada se separan por un interrogante ?:
+www.ejemplo.com/index.htm?key1=value1&key2=value2&key3=value3...
+
+ejemplo de get en HTML seria:
+
+<html>
+<body>
+<form action="formget.php" method="get">
+    Nombre: <input type="text" name="nombre"><br>
+    Email: <input type="text" name="email"><br>
+    <input type="submit" value="Enviar">
+</form>
+Hola <?php isset($_GET["nombre"]) ? print $_GET["nombre"] : ""; ?><br>
+Tu email es: <?php isset($_GET["email"]) ? print $_GET["email"] : ""; ?>
+</body>
+</html>
+
+
+POST también codifica la información, pero la envía a través del body del HTTP Request, por lo que no aparece en la URL:
+
+ ejemplo de get en HTML seria:
+ 
+ <html>
+<body>
+<form action="formpost.php" method="post">
+    Nombre: <input type="text" name="nombre"><br>
+    Email: <input type="text" name="email"><br>
+    <input type="submit" value="Enviar">
+</form>
+Hola <?php isset($_POST["nombre"]) ? print $_POST["nombre"] : ""; ?><br>
+Tu email es: <?php isset($_POST["email"]) ? print $_POST["email"] : ""; ?>
+</body>
+</html>
+
+7)
+Al acceder a una pagina se utilizan los verbos GET y POST
+
+8)
+JSON es un formato de datos basado en texto que sigue la sintaxis de objeto de JavaScript. Es muy parecido a la sintaxis de objeto literal de JavaScript y puede ser utilizado independientemente. Muchos entornos de programación poseen la capacidad de leer (convertir; parsear) y generar JSON.
+Los JSON son cadenas - útiles cuando se quiere transmitir datos a través de una red. Debe ser convertido a un objeto nativo de JavaScript cuando se requiera acceder a sus datos. Ésto no es un problema, dado que JavaScript posee un objeto global JSON que tiene los métodos disponibles para convertir entre ellos.
+
+Es posible incluir los mismos tipos de datos básicos dentro de un JSON que en un objeto estándar de JavaScript - cadenas, números, arreglos, booleanos, y otros literales de objeto. 
+Esto permite construir una jerarquía de datos, como ésta:
+
+{
+  "squadName": "Super hero squad",
+  "homeTown": "Metro City",
+  "formed": 2016,
+  "secretBase": "Super tower",
+  "active": true,
+  "members": [
+    {
+      "name": "Molecule Man",
+      "age": 29,
+      "secretIdentity": "Dan Jukes",
+      "powers": [
+        "Radiation resistance",
+        "Turning tiny",
+        "Radiation blast"
+      ]
+    },
+    {
+      "name": "Madame Uppercut",
+      "age": 39,
+      "secretIdentity": "Jane Wilson",
+      "powers": [
+        "Million tonne punch",
+        "Damage resistance",
+        "Superhuman reflexes"
+      ]
+    },
+    {
+      "name": "Eternal Flame",
+      "age": 1000000,
+      "secretIdentity": "Unknown",
+      "powers": [
+        "Immortality",
+        "Heat Immunity",
+        "Inferno",
+        "Teleportation",
+        "Interdimensional travel"
+      ]
+    }
+  ]
+}
+
+XML es un lenguaje abierto, que permite describir el sentido o la semántica de los datos.
+A diferencia de HTML, separa el contenido de la presentación. 
+Permite la definición de lenguajes concretos de representación de documentos.
+
+Ejemplo de un documento HTML:
+<libreria> 
+  <libro>
+    <autores>
+        <autor>Elizabeth Castro</autor> 
+    <autores>
+    <titulo>XML Guía de Aprendizaje</titulo> 
+    <precio moneda="euros">30</precio>
+    <descriptores>
+        <descriptor>lenguajes<descriptor>
+        <descriptor>XML<descriptor>
+    <descriptores>
+             
+  </libro> 
+  <libro>
+    <autores>
+        <autor>Benoit Marchal</autor> 
+    <autores
+    <titulo>XML con ejemplos</titulo> 
+    <precio moneda="euros">45</precio>
+    <descriptores>
+        <descriptor>lenguajes<descriptor>
+        <descriptor>XML<descriptor>
+    <descriptores>
+   </libro> 
+</libreria>
+
+Mientras que HTML se centra en colocar etiquetas para presentar la información, XML utiliza etiquetas para definir el contenido y el signficado de la misma.
+
+9)
+SOAP (Simple Object Access Protocol) es un protocolo estándar que define cómo dos objetos en diferentes procesos pueden comunicarse por medio de intercambio de datos XML. Es uno de los protocolos utilizados en los servicios Web.
+
+SOAP puede ser utilizado para formar protocolos más completos y complejos según las necesidades de las aplicaciones que lo implementan. Puede formar y construir la capa base de una "pila de protocolos de web service", ofreciendo un framework de mensajería básica en el cual los web services se pueden construir. Este protocolo está basado en XML y se conforma de tres partes:
+Sobre (envelope): el cual define qué hay en el mensaje y cómo procesarlo.
+Conjunto de reglas de codificación para expresar instancias de tipos de datos.
+La Convención para representar llamadas a procedimientos y respuestas.
+
+El protocolo SOAP tiene tres características principales:
+Extensibilidad (seguridad y WS-routing son extensiones aplicadas en el desarrollo).
+Neutralidad (bajo protocolo de transporte TCP puede ser utilizado sobre cualquier protocolo de aplicación como HTTP, SMTP o JMS).
+Independencia (permite cualquier modelo de programación).
+
+10)
+REST es un estilo de arquitectura software para sistemas hipermedia distribuidos como la World Wide Web y ha pasado a ser ampliamente utilizado por la comunidad de desarrollo.
+En la actualidad se usa para describir cualquier interfaz entre sistemas que utilice directamente HTTP para obtener datos o indicar la ejecución de operaciones sobre los datos, en cualquier formato (XML, JSON, etc) sin las abstracciones adicionales de los protocolos basados en patrones de intercambio de mensajes, como por ejemplo SOAP.
+
+RESTful hace referencia a un servicio web que implementa la arquitectura REST.
+
+11)
+En un HTTP request, los headers son esquemas de key: value que contienen información sobre el HTTP request y el navegador. Aquí también se encuentran los datos de las cookies. La mayoría de los headers son opcionales.
+Content-Type es la propiedad del header usada para indicar el  media type del recurso. Le dice al cliente que tipo de contenido será retornado.
+
+
+
+
+

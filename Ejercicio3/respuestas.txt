@@ -1,0 +1,1 @@
+La diferencia que se nota entre el 1er y el segundo get es que, al haber hecho un post de por medio, el nombre, dni y apellido enviado por dicho post ahora se encuentra en la informacion que trae el GET
