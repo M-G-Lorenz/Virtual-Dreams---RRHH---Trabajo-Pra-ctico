@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Formularios" />
+    <title>Formularios</title>
+</head>
+
+<body>
+    <section>
+        <form id="informacion" method="POST">
+            <br>
+            <input type="text" placeholder="apellido" title=apellido name="apellido" id="apellido" size="52" required>
+            <br>
+            <input type="text" placeholder="dni" title=dni name="dni" id="dni" size="52" required>
+            <br>
+            <input type="text" placeholder="nombre" title=nombre name="nombre" id="nombre" size="52" required>
+            <br>
+            <input id="datos" type="button" value="Enviar">
+        </form>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+
+        $('#datos').click(function(event){
+            event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "https://reclutamiento-14cf7.firebaseio.com/personas.json",
+            cache: false,
+            data: JSON.stringify({"apellido": apellido,"dni": dni, "nombre": nombre}),
+            dataType: "json",
+            contentType: "application/json",
+            success: function () { return false; },
+        });
+     
+        return false;
+    });
+    </script>
+
+</body>
+
+</html>
